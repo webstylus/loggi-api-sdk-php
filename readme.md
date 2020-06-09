@@ -12,7 +12,7 @@ __Obter chave de acesso__
 - Obtem uma apikey através do email e senha.
 - Como a apikey não muda, então salve para reutilizar como o método a seguir
 
-
+````
     <?php
     
     use Loggi;
@@ -20,40 +20,44 @@ __Obter chave de acesso__
     $api_key = $loggi->getCredentials($email, $password); 
     $api_key = $loggi->getApiKey(); 
     
+````
+
 __Instanciar conexão com email e apiKey__ 
 - Utilize a apikey salva junto com o email para fazer as requisições    
     
-    
+````    
     <?php
      
     use Loggi;
     $loggi = new \Loggi\Loggi($email, $api_key);
-    
+````
+ 
 __Métodos__
 - Cadastro de Lojas
   
+````
+<?php
   
-    <?php
-      
-    $loggi->shop()->createShop(
-            'Loja Integrando com a Loggi',
-            '01418200',
-            '2400',
-            'apto. 61',
-            '11999998888',
-            1003,
-            'Entregar na recepção',
-            0,
-            'integracao1019',
-            'start'
-        );  
-            
+$loggi->shop()->createShop(
+        'Loja Integrando com a Loggi',
+        '01418200',
+        '2400',
+        'apto. 61',
+        '11999998888',
+        1003,
+        'Entregar na recepção',
+        0,
+        'integracao1019',
+        'start'
+    );  
+````
+         
 - Obtem a lista de Lojas cadastradas na Loggi
 
-
+````
     <?php
     
     $getShop = $loggi->shop()->getShopList();
-    
+````
     
         
