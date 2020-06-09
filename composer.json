@@ -1,5 +1,5 @@
 {
-    "name": "lojazone/loggi-api-integration",
+    "name": "lojazone/loggi-api-sdk-php",
     "type": "library",
     "description": "Library to abstract Loggi APi implementation",
     "authors": [
