@@ -15,12 +15,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Loggi\\": "src/"
+            "Lojazone\\Loggi\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Loggi\\Tests\\": "tests/"
+            "Lojazone\\Loggi\\Tests\\": "tests/"
         }
     },
     "extra": {

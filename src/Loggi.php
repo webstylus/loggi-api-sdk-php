@@ -1,13 +1,13 @@
 <?php
 
-namespace Loggi;
+namespace Lojazone\Loggi;
 
-use Loggi\Contracts\LoggiInterface;
-use Loggi\Models\Authorization;
-use Loggi\Models\City;
-use Loggi\Models\Invoice;
-use Loggi\Models\Package;
-use Loggi\Models\Shop;
+use Lojazone\Loggi\Contracts\LoggiInterface;
+use Lojazone\Loggi\Models\Authorization;
+use Lojazone\Loggi\Models\City;
+use Lojazone\Loggi\Models\Invoice;
+use Lojazone\Loggi\Models\Package;
+use Lojazone\Loggi\Models\Shop;
 
 class Loggi extends Client implements LoggiInterface
 {
