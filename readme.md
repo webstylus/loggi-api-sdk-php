@@ -25,39 +25,39 @@ __Obter chave de acesso__
 __Instanciar conexão com email e apiKey__ 
 - Utilize a apikey salva junto com o email para fazer as requisições    
     
-````    
-    <?php
+```php
+<?php
      
-    use Loggi;
-    $loggi = new \Loggi\Loggi($email, $api_key);
+    use Lojazone\Loggi;
+    $loggi = new \Lojazone\Loggi\Loggi($email, $api_key);
 ````
  
 __Métodos__
 - Cadastro de Lojas
   
-````
+```php
 <?php
-  
-$loggi->shop()->createShop(
-        'Loja Integrando com a Loggi',
-        '01418200',
-        '2400',
-        'apto. 61',
-        '11999998888',
-        1003,
-        'Entregar na recepção',
-        0,
-        'integracao1019',
-        'start'
-    );  
-````
+
+    $loggi->shop()->createShop(
+            'Loja Integrando com a Loggi',
+            '01418200',
+            '2400',
+            'apto. 61',
+            '11999998888',
+            1003,
+            'Entregar na recepção',
+            0,
+            'integracao1019',
+            'start'
+        );  
+```
          
 - Obtem a lista de Lojas cadastradas na Loggi
 
-````
-    <?php
+```php
+<?php
     
     $loggi->shop()->getShopList();
-````
+```
     
         
