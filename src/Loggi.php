@@ -4,6 +4,10 @@ namespace Loggi;
 
 use Loggi\Contracts\LoggiInterface;
 use Loggi\Models\Authorization;
+use Loggi\Models\City;
+use Loggi\Models\Invoice;
+use Loggi\Models\Package;
+use Loggi\Models\Shop;
 
 class Loggi extends Client implements LoggiInterface
 {
@@ -28,6 +32,23 @@ class Loggi extends Client implements LoggiInterface
         $credentials = new Authorization($this->request('authorization', $query));
         $this->api_key = $credentials->getValue();
         return $this->api_key;
+    }
+
+    public function shop(): Shop
+    {
+        return new Shop($this);
+    }
+
+    public function city(): City
+    {
+    }
+
+    public function package(): Package
+    {
+    }
+
+    public function invoice(): Invoice
+    {
     }
 
 }

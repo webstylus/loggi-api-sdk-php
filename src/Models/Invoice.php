@@ -4,7 +4,7 @@
 namespace Loggi\Models;
 
 
-class Request
+class Invoice
 {
 
 }

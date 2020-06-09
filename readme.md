@@ -9,24 +9,51 @@ Antes de iniciar faça o cadastro na Loggi seguindo os passos do (comece rápido
 https://docs.api.loggi.com/docs
 
 __Obter chave de acesso__
+- Obtem uma apikey através do email e senha.
+- Como a apikey não muda, então salve para reutilizar como o método a seguir
+
 
     <?php
     
     use Loggi;
-    $loggi = new \Loggi\Loggi;
-    $api_key = $loggi->getCredentials($email, $password);
+    $loggi = new \Loggi\Loggi; 
+    $api_key = $loggi->getCredentials($email, $password); 
+    $api_key = $loggi->getApiKey(); 
     
 __Instanciar conexão com email e apiKey__ 
+- Utilize a apikey salva junto com o email para fazer as requisições    
     
+    
+    <?php
+     
     use Loggi;
-    $loggi = new \Loggi\Loggi($email, $apikey);
+    $loggi = new \Loggi\Loggi($email, $api_key);
     
 __Métodos__
+- Cadastro de Lojas
+  
+  
+    <?php
+      
+    $loggi->shop()->createShop(
+            'Loja Integrando com a Loggi',
+            '01418200',
+            '2400',
+            'apto. 61',
+            '11999998888',
+            1003,
+            'Entregar na recepção',
+            0,
+            'integracao1019',
+            'start'
+        );  
+            
+- Obtem a lista de Lojas cadastradas na Loggi
+
+
+    <?php
     
-    Obtem a lista de Lojas cadastradas na Loggi
-    $shops = $loggi->getShopList();      
-    
-    $cities = $loggi->getCityList();
+    $getShop = $loggi->shop()->getShopList();
     
     
         
