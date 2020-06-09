@@ -1,6 +1,7 @@
 {
     "name": "lojazone/loggi-api-sdk-php",
     "type": "library",
+    "license": "MIT",
     "description": "Library to abstract Loggi APi implementation",
     "authors": [
         {
