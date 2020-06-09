@@ -57,7 +57,7 @@ $loggi->shop()->createShop(
 ````
     <?php
     
-    $getShop = $loggi->shop()->getShopList();
+    $loggi->shop()->getShopList();
 ````
     
         
