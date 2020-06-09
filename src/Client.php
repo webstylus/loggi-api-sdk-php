@@ -1,6 +1,6 @@
 <?php
 
-namespace Loggi;
+namespace Lojazone\Loggi;
 
 use GuzzleHttp\Exception\ClientException;
 

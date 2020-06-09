@@ -1,6 +1,6 @@
 <?php
 
-namespace Loggi\Models;
+namespace Lojazone\Loggi\Models;
 
 /**
  * Class Authorization

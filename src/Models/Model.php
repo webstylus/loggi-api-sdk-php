@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Loggi\Models;
+namespace Lojazone\Loggi\Models;
 
-use Loggi\Client;
+use Lojazone\Loggi\Client;
 
 /**
  * Class Model

@@ -1,6 +1,6 @@
 <?php
 
-namespace Loggi\Contracts;
+namespace Lojazone\Loggi\Contracts;
 
 use Loggi\Models\Authorization;
 

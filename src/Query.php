@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Loggi;
+namespace Lojazone\Loggi;
 
 
 class Query
