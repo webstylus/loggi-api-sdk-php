@@ -12,15 +12,15 @@ __Obter chave de acesso__
 - Obtem uma apikey através do email e senha.
 - Como a apikey não muda, então salve para reutilizar como o método a seguir
 
-````
-    <?php
+```php
+<?php
     
     use Loggi;
     $loggi = new \Loggi\Loggi; 
     $api_key = $loggi->getCredentials($email, $password); 
     $api_key = $loggi->getApiKey(); 
     
-````
+```
 
 __Instanciar conexão com email e apiKey__ 
 - Utilize a apikey salva junto com o email para fazer as requisições    
