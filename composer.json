@@ -1,0 +1,31 @@
+{
+    "name": "rafael/loggi-api-integration",
+    "type": "library",
+    "description": "Library to abstract Loggi APi implementation",
+    "authors": [
+        {
+            "name": "Rafael Pacífico",
+            "email": "rafael@webstylus.com.br"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "symfony/var-dumper": "^5.1",
+        "filp/whoops": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Loggi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Loggi\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
