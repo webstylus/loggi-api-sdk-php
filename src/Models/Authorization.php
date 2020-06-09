@@ -6,8 +6,27 @@ namespace Loggi\Models;
  * Class Authorization
  * @package Loggi\Models
  */
-class Authorization extends Model
+class Authorization
 {
+    protected $response;
+
+    /**
+     * Model constructor.
+     * @param $response
+     */
+    public function __construct($response)
+    {
+        $this->response = $response;
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function __get($name): ?object
+    {
+        return $this->$name;
+    }
     /**
      * Get apikey resumed
      * @return mixed

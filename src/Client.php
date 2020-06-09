@@ -6,19 +6,25 @@ use GuzzleHttp\Exception\ClientException;
 
 abstract class Client
 {
-    public const SANDBOX = 'https://staging.loggi.com/graphql';
-    public const PRODUCTION = 'https://www.loggi.com/graphql';
-
     /** @var \GuzzleHttp\Client $client */
     protected $client;
+
+
     /** @var EndPoints $endpoint */
     protected $endpoint;
+
+
     /** @var */
     protected $api_key;
+
+
     /** @var */
     protected $email;
+
+
     /** @var array|string[] */
     private $header_authorization = [];
+
 
     /**
      * Client constructor.
@@ -46,6 +52,7 @@ abstract class Client
      * @param $endpoint_name
      * @param $query
      * @return mixed
+     * @throws \Exception
      */
     public function request($endpoint_name, $query)
     {
@@ -55,7 +62,7 @@ abstract class Client
             ]);
             return \GuzzleHttp\json_decode($request->getBody());
         } catch (ClientException $clientException) {
-            dd($clientException->getMessage());
+            throw new \Exception($clientException->getMessage());
         }
     }
 

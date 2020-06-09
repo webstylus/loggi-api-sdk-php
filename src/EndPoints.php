@@ -12,6 +12,9 @@ namespace Loggi;
  */
 class EndPoints
 {
+    public const SANDBOX = 'https://staging.loggi.com/graphql';
+    public const PRODUCTION = 'https://www.loggi.com/graphql';
+
     private $endpoints;
 
     public function __construct()

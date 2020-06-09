@@ -3,22 +3,24 @@
 
 namespace Loggi\Models;
 
+use Loggi\Client;
+
 /**
  * Class Model
- * @property string $response
+ * @property string $client
  * @package Loggi\Models
  */
 abstract class Model
 {
-    protected $response;
+    protected $client;
 
     /**
      * Model constructor.
-     * @param $response
+     * @param Client $client
      */
-    final public function __construct($response)
+    final public function __construct(Client $client)
     {
-        $this->response = $response;
+        $this->client = $client;
     }
 
     /**
@@ -28,5 +30,18 @@ abstract class Model
     final public function __get($name): ?object
     {
         return $this->$name;
+    }
+
+    /**
+     * @return Client
+     */
+    public function getClient(): Client
+    {
+        return $this->client;
+    }
+
+    public function queryType()
+    {
+        
     }
 }
