@@ -15,7 +15,7 @@ __Obter chave de acesso__
 ```php
 <?php
     
-    use Loggi;
+    use Lojazone\Loggi;
     $loggi = new \Loggi\Loggi; 
     $api_key = $loggi->getCredentials($email, $password); 
     $api_key = $loggi->getApiKey(); 
