@@ -21,7 +21,7 @@ if (empty($api_key)) {
 //dump($loggi);
 
 $googleApi = new \Lojazone\Loggi\Models\GoogleApi($api_google);
-dump($googleApi->getFormattedAddress('04814530'), $googleApi->getLatLong('04814530'));
+dd($googleApi->getFormattedAddress('04814530'), $googleApi->getLatLong('04814530'));
 
 /**
  * Métodos relacionados as Lojas

@@ -1,4 +1,4 @@
 .idea
 node_modules
 vendor
-src/config/env.php
+./src/config/env.php
