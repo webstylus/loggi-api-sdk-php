@@ -4,6 +4,10 @@ namespace Lojazone\Loggi;
 
 use GuzzleHttp\Exception\ClientException;
 
+/**
+ * Class Client
+ * @package Lojazone\Loggi
+ */
 abstract class Client
 {
     /** @var \GuzzleHttp\Client $client */
@@ -66,5 +70,19 @@ abstract class Client
         }
     }
 
-
+    /**
+     * @param $postal_code
+     * @param $api_key
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getLocation($postal_code, $api_key)
+    {
+        try {
+            $request = $this->client->get("https://maps.googleapis.com/maps/api/geocode/json?address=$postal_code&key=$api_key");
+            return \GuzzleHttp\json_decode($request->getBody());
+        } catch (ClientException $clientException) {
+            throw new \Exception($clientException->getMessage());
+        }
+    }
 }
