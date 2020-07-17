@@ -29,6 +29,9 @@ abstract class Client
     /** @var array|string[] */
     private $header_authorization = [];
 
+    public $lat;
+
+    public $long;
 
     /**
      * Client constructor.
@@ -79,10 +82,18 @@ abstract class Client
     public function getLocation($postal_code, $api_key)
     {
         try {
-            $request = $this->client->get("https://maps.googleapis.com/maps/api/geocode/json?address=$postal_code&key=$api_key");
-            return \GuzzleHttp\json_decode($request->getBody());
+            $request = $this->client->get("https://maps.googleapis.com/maps/api/geocode/json?address={$postal_code}&key={$api_key}");
+            $result = json_decode($request->getBody());
+            if ($result->status === "OK") {
+                return $result;
+            }
+            return false;
         } catch (ClientException $clientException) {
             throw new \Exception($clientException->getMessage());
         }
     }
+
+
+
+
 }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Lojazone\Loggi\Models;
-
 
 /**
  * Class Invoice
@@ -11,22 +9,23 @@ namespace Lojazone\Loggi\Models;
 class Invoice extends Model
 {
     /**
+     * -23.666306
+     * -46.7489071
+     * @param $postal_code
      * @param $shopId
-     * @param $lat
-     * @param $long
      * @param $chargeMethod
      * @return mixed
      * @throws \Exception
      */
-    public function estimatePricesUsingFixedOrderWithLatLong($shopId, $lat, $long, $chargeMethod)
+    public function estimatePricesUsingFixedOrderWithLatLong($shopId, $chargeMethod)
     {
         $query = "query {
                       estimate(
                         shopId: $shopId,
                         packagesDestination: [
                           {
-                            lat: $lat,
-                            lng: $long   
+                            lat: {$this->client->lat},
+                            lng: {$this->client->long}  
                           }
                         ]
                         chargeMethod: $chargeMethod,

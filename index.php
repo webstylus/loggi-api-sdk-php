@@ -8,51 +8,51 @@ include("src/config/app.php");
  */
 
 if (empty($api_key)) {
-    $loggi = new \Lojazone\Loggi\Loggi; //Monta cabeçalho da requisição
+    $loggi = new \Lojazone\Loggi\Loggi($api_google); //Monta cabeçalho da requisição
     $api_key = $loggi->getCredentials($email, $password); //retorna a apikey
     $api_key = $loggi->getApiKey(); //retorna a apikey
 } else {
-    /**
-     * utilize a apikey salva junto com o email para fazer as requisições
-     */
-    $loggi = new \Lojazone\Loggi\Loggi($email, $api_key); //monta cabeçalho da requisição já autenticado
+    /** utilize a apikey salva junto com o email para fazer as requisições*/
+    $loggi = new \Lojazone\Loggi\Loggi($api_google, $email, $api_key); //monta cabeçalho da requisição já autenticado
 }
 
 //dump($loggi);
 
-$googleApi = new \Lojazone\Loggi\Models\GoogleApi($api_google);
-dd($googleApi->getFormattedAddress('04814530'), $googleApi->getLatLong('04814530'));
+//$googleApi = new \Lojazone\Loggi\Models\GoogleApi($api_google);
+//dump($googleApi->getFormattedAddress('04814530'), $googleApi->getLatLong('04814530'));
 
 /**
  * Métodos relacionados as Lojas
  */
 try {
     /** @var  \Lojazone\Loggi\Models\Shop $createShop criar uma loja */
-    $createShop = $loggi->shop()->createShop(
-        'Loja Integrando com a Loggi',
-        '01418200',
-        '2400',
-        'apto. 61',
-        '11999998888',
-        1003,
-        'Entregar na recepção',
-        0,
-        'integracao1019',
-        'start'
-    );
+//    $createShop = $loggi->shop()->createShop(
+//        'Loja Integrando com a Loggi',
+//        '01418200',
+//        '2400',
+//        'apto. 61',
+//        '11999998888',
+//        1003,
+//        'Entregar na recepção',
+//        0,
+//        'integracao1019',
+//        'start'
+//    );
+    //dump($createShop);
     /** @var \Lojazone\Loggi\Models\Shop $getShop Obtem a lista de lojas */
-    $getShop = $loggi->shop()->getShopList();
-
-    dump($createShop, $getShop);
-
-    /** @var \Lojazone\Loggi\Models\City $allCity Obtem a lista de cidades de atendimento */
-    $allCity = $loggi->city()->getCityList();
-    dump($allCity);
+//    $getShop = $loggi->shop()->getShopList();
+//    dd($getShop);
+//
+//    dump($createShop, $getShop);
+//
+//    /** @var \Lojazone\Loggi\Models\City $allCity Obtem a lista de cidades de atendimento */
+//    $allCity = $loggi->city()->getCityList();
+//    dump($allCity);
 
     //Invoice
     /** @var \Lojazone\Loggi\Models\Invoice $getEstimativeOfInvoice Estimar preços de pedido utilizando ponto fixo com lat/long */
-    $getEstimativeOfInvoice = $loggi->invoice()->estimatePricesUsingFixedOrderWithLatLong(5990, -23.5025491, -46.69607400000001, 1);
-    dump($getEstimativeOfInvoice);
+    $getEstimativeOfInvoice = $loggi->estimate('13478-080')->estimatePricesUsingFixedOrderWithLatLong(5990, 1);
+    dd($getEstimativeOfInvoice);
 
     /** @var \Lojazone\Loggi\Models\Invoice $createInvoice Criar invoice */
     $createInvoice = $loggi->invoice()->createInvoice(5990,

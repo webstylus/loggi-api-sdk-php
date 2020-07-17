@@ -29,7 +29,7 @@ abstract class Model
      */
     final public function __get($name): ?object
     {
-        return $this->$name;
+        return $this->client->$name;
     }
 
     /**

@@ -21,12 +21,12 @@ class GoogleApi extends Client
     public function getLatLong($postal_code)
     {
         $latLong = new LatitudeLongitude($this->getLocation($postal_code, $this->api_key));
-        return $latLong->getValueLatLong();
+        return $latLong->getValueLatLong() ?? false;
     }
 
     public function getFormattedAddress($postal_code)
     {
         $latLong = new LatitudeLongitude($this->getLocation($postal_code, $this->api_key));
-        return $latLong->getValueFormattedAddress();
+        return $latLong->getValueFormattedAddress() ?? false;
     }
 }

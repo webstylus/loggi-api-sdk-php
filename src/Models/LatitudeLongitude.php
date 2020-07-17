@@ -29,22 +29,24 @@ class LatitudeLongitude
     }
 
     /**
-     * Get Latitude Longitude
-     * @return mixed
+     * @return bool
      */
-    public function getValueLatLong(): array
+    public function getValueLatLong()
     {
-        $value['lat'] = $this->response->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
-        $value['long'] = $this->response->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
-        return $value;
+        if ($this->response) {
+            $value['lat'] = $this->response->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
+            $value['long'] = $this->response->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
+            return $value;
+        }
+        return false;
     }
 
     /**
-     * Get Address
-     * @return string
+     * @return bool
      */
-    public function getValueFormattedAddress(): string
+    public function getValueFormattedAddress()
     {
-        return $this->response->{'results'}[0]->{'formatted_address'};
+        if ($this->response) return $this->response->{'results'}[0]->{'formatted_address'};
+        return false;
     }
 }

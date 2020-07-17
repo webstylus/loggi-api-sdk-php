@@ -5,6 +5,7 @@ namespace Lojazone\Loggi;
 use Lojazone\Loggi\Contracts\LoggiInterface;
 use Lojazone\Loggi\Models\Authorization;
 use Lojazone\Loggi\Models\City;
+use Lojazone\Loggi\Models\GoogleApi;
 use Lojazone\Loggi\Models\Invoice;
 use Lojazone\Loggi\Models\Package;
 use Lojazone\Loggi\Models\Shop;
@@ -15,14 +16,17 @@ use Lojazone\Loggi\Models\Shop;
  */
 class Loggi extends Client implements LoggiInterface
 {
+    private $google_api_key;
+
     /**
      * Loggi constructor.
      * @param null $email
      * @param null $api_key
      */
-    public function __construct($email = null, $api_key = null)
+    public function __construct($google_api_key, $email = null, $api_key = null)
     {
         parent::__construct($email, $api_key);
+        $this->google_api_key = $google_api_key;
     }
 
     /**
@@ -36,7 +40,8 @@ class Loggi extends Client implements LoggiInterface
     /**
      * @param string $email
      * @param string $password
-     * @return mixed
+     * @return string|null
+     * @throws \Exception
      */
     public function getCredentials($email, $password): ?string
     {
@@ -68,6 +73,16 @@ class Loggi extends Client implements LoggiInterface
     public function package(): Package
     {
         return new Package($this);
+    }
+
+    public function estimate(string $postal_code): Invoice
+    {
+        $google = new GoogleApi($this->google_api_key);
+        if ($location = $google->getLatLong($postal_code)) {
+            $this->lat = $location['lat'];
+            $this->long = $location['long'];
+        }
+        return new Invoice($this);
     }
 
     /**
