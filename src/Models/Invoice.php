@@ -18,8 +18,7 @@ class Invoice extends Model
      * @return mixed
      * @throws \Exception
      */
-    public function
-    estimatePricesUsingFixedOrderWithLatLong($shopId, $lat, $long, $chargeMethod)
+    public function estimatePricesUsingFixedOrderWithLatLong($shopId, $lat, $long, $chargeMethod)
     {
         $query = "query {
                       estimate(
@@ -167,8 +166,7 @@ class Invoice extends Model
      * @return mixed
      * @throws \Exception
      */
-    public function
-    redoAnOrder($orderId)
+    public function redoAnOrder($orderId)
     {
         $query = "mutation {
                       redoOrder(input: {id: $orderId}) {
@@ -195,8 +193,7 @@ class Invoice extends Model
      * @return mixed
      * @throws \Exception
      */
-    public function
-    consultAnOrderAndTrackDeliveryPerson($orderId)
+    public function consultAnOrderAndTrackDeliveryPerson($orderId)
     {
         $query = "query {
                       retrieveOrderWithPk(orderPk: $orderId) {
