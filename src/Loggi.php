@@ -9,13 +9,25 @@ use Lojazone\Loggi\Models\Invoice;
 use Lojazone\Loggi\Models\Package;
 use Lojazone\Loggi\Models\Shop;
 
+/**
+ * Class Loggi
+ * @package Lojazone\Loggi
+ */
 class Loggi extends Client implements LoggiInterface
 {
+    /**
+     * Loggi constructor.
+     * @param null $email
+     * @param null $api_key
+     */
     public function __construct($email = null, $api_key = null)
     {
         parent::__construct($email, $api_key);
     }
 
+    /**
+     * @return string|null
+     */
     public function getApiKey(): ?string
     {
         return $this->api_key;
@@ -34,21 +46,36 @@ class Loggi extends Client implements LoggiInterface
         return $this->api_key;
     }
 
+    /**
+     * @return Shop
+     */
     public function shop(): Shop
     {
         return new Shop($this);
     }
 
+    /**
+     * @return City
+     */
     public function city(): City
     {
+        return new City($this);
     }
 
+    /**
+     * @return Package
+     */
     public function package(): Package
     {
+        return new Package($this);
     }
 
+    /**
+     * @return Invoice
+     */
     public function invoice(): Invoice
     {
+        return new Invoice($this);
     }
 
 }
