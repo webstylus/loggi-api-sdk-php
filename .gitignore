@@ -2,3 +2,5 @@
 node_modules
 vendor
 src/config/env.php
+package-lock.json
+composer.lock
